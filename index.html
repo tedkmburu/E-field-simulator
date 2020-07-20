@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" media="screen and (min-width: 601px)" href="index.css">
+      <link rel="stylesheet" media="screen and (max-width: 600px)" href="smallindex.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>E-Field Simulator</title>
+   </head>
+   <body >
+     <ul id="contextMenu" class="contextMenu" style="top:0;left:0;display: none;"></ul>
+
+     <div class="popup" id="popup">
+       <div class="content">
+        <i class="fas fa-times closePopUp" onclick="togglePopUp()"></i><br>
+        <h1>How to use</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1>Using Simulation in a Classroom</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>
+          Teacher:
+          <ul>
+            <li>Insert images into class slides</li>
+            <li>Create discussions around why intuition differs from reality</li>
+            <li> <a href="#">Worksheet/guided questions</a> </li>
+          </ul>
+          Student:
+          <ul>
+            <li>Create charge configurations</li>
+            <li>Model problems in simulation</li>
+          </ul>
+        </p>
+        <h1>Report a bug</h1>
+        <p>tmburu@ithaca.edu</p>
+        created by: Ted Mburu<br>
+        <br>
+        Aknowlegements<br>
+        Dr. Colleen Countryman<br>
+        Dr. John Barr<br>
+        Dr. Doug Turnbull<br>
+        Ithaca College Physics Department<br>
+        Ithaca College IT<br>
+
+        p5.js (<a href="https://p5js.org/" target="_blank">p5js.org</a>)<br>
+        Daniel Shiffman (<a href="https://www.youtube.com/user/shiffman/featured" target="_blank">The Coding Train</a>)<br>
+
+
+       </div>
+     </div>
+
+     <div class="three" onclick="toggleBurger()">
+       <i class="fas fa-bars"></i>
+     </div>
+     <div class="menu" id="menu" name="menu" style="right: 0px;">
+
+
+       <table class="menu">
+         <tr>
+           <td colspan="2">
+             <table class="options">
+               <tr>
+                 <td>
+                   <input class="checkBox" type="checkbox" name="fieldLines" id="fieldLines" oninput="createDataFromMenu();" >
+                 </td>
+                 <td>
+                  <label for="fieldLines">Field Lines</label>
+                 </td>
+               </tr>
+
+
+               <tr>
+                 <td>
+                   <input class="checkBox" type="checkbox" name="fieldVectors" id="fieldVectors" oninput="createDataFromMenu();">
+                 </td>
+                 <td>
+                  <label for="fieldVectors">Field Vectors</label>
+                 </td>
+               </tr>
+
+
+               <tr>
+                 <td>
+                   <input class="checkBox" type="checkbox" name="equi" id="equi" oninput="createDataFromMenu();">
+                 </td>
+                 <td>
+                  <label for="equi">Equipotential Lines</label>
+                 </td>
+               </tr>
+
+
+
+               <tr>
+                 <td>
+                   <input class="checkBox" type="checkbox" name="voltage" id="voltage" oninput="createDataFromMenu();" >
+                 </td>
+                 <td>
+                  <label for="voltage">Voltage</label>
+                 </td>
+               </tr>
+
+
+
+
+
+
+
+
+               <tr>
+                 <td>
+                   <input class="checkBox" type="checkbox" name="createGrid" id="createGrid" oninput="createDataFromMenu();" checked>
+                 </td>
+                 <td>
+                  <label for="createGrid">Show Grid</label>
+                 </td>
+               </tr>
+
+
+
+               <tr>
+                 <td>
+
+                 </td>
+                 <td>
+                  <input class="checkBox" type="checkbox" name="snapChargesToGrid" id="snapChargesToGrid" oninput="createDataFromMenu();" >
+                  <label for="snapChargesToGrid">Snap to Grid</label>
+                 </td>
+               </tr>
+             </table>
+           </td>
+         </tr>
+
+
+
+         <tr>
+           <td>
+             <br>
+             <br>
+
+           </td>
+         </tr>
+
+         <tr>
+          <td colspan="2">
+            Premade Configurations:
+            <br>
+          </td>
+         </tr>
+
+
+         <tr>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('single');">Single</button>
+           </td>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('dipole');">Dipole</button>
+           </td>
+         </tr>
+         <!-- <tr>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('square');">Square</button>
+           </td>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('shield');">Shield</button>
+           </td>
+         </tr> -->
+         <tr>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('row');">Row</button>
+           </td>
+           <td class="button">
+             <button type="button" class="preset" onclick="createPreset('dipole row');">Dipole Row</button>
+           </td>
+         </tr>
+         <tr>
+           <td colspan="2"  class="doubleButton">
+             <button type="button" class="preset big" onclick="createPreset();testCharges=[];equiPoints = [];">Remove All Charges</button>
+           </td>
+         </tr>
+
+
+
+
+
+         <tr>
+           <td>
+             <br>
+             <br>
+           </td>
+         </tr>
+
+
+
+
+
+         <tr>
+           <td colspan="2">
+             <input class="checkBox" type="checkbox" name="testCharge" id="testCharge" oninput="getDataFromMenu();testCharges = [];">
+            <label for="testCharge">Test Charge Mode</label>
+           </td>
+         </tr>
+
+         <tr>
+           <td class="button" colspan="2">
+             <button type="button" class="preset big" onclick="select('#testCharge').checked(true);getDataFromMenu();createTestChargeMap();">Create Test Charge Map</button>
+           </td>
+         </tr>
+         <tr>
+           <td class="button" colspan="2">
+             <button type="button" class="preset big" onclick="testCharges = [];">Clear Test Charges</button>
+           </td>
+         </tr>
+
+
+
+         <!-- <tr>
+           <td>
+             <br>
+             <br>
+           </td>
+         </tr>
+
+
+
+
+
+         <tr>
+           <td colspan="2">
+             <input class="checkBox" type="checkbox" name="walls" id="walls" oninput="getDataFromMenu();walls = [];">
+            <label for="walls">Wall Mode</label>
+           </td>
+         </tr>
+
+         <tr>
+           <td class="button" colspan="2">
+             <button type="button" class="preset" onclick="walls = [];">Clear Walls</button>
+           </td>
+         </tr> -->
+
+       </table>
+
+
+
+
+
+
+
+     </div>
+     <div class="bottomButtons">
+       <i onclick="togglePopUp()" class="fas fa-info"></i>
+       <!-- <i onclick="loop();looping = true;" class="fas fa-play"></i>
+       <i onclick="noLoop();looping = false;" class="fas fa-pause"></i> -->
+       <i onclick="toggleFullscreen();" class="fas fa-expand" id="fullscreen"></i>
+       <i onclick="saveAsPNG();" class="fas fa-download"></i>
+       <i onclick="location.reload();" class="fas fa-redo-alt"></i>
+     </div>
+
+   </body>
+   <script src="script.js"></script>
+   <script src="charge.js"></script>
+   <script src="testCharge.js"></script>
+   <script src="contextMenu.js"></script>
+   <script src="equipotentialLines.js"></script>
+   <script src="voltage.js"></script>
+   <script src="fieldLines.js"></script>
+   <script src="fieldVectors.js"></script>
+   <script src="wall.js"></script>
+   <script src="p5.min.js"></script>
+   <script src="p5.collide2d.min.js"></script>
+   <script src="https://kit.fontawesome.com/5ab7058819.js" crossorigin="anonymous"></script>
+</html>

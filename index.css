@@ -1,0 +1,229 @@
+body
+{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background-color: black;
+
+
+}
+div.three
+{
+  display: none;
+}
+div.menu
+{
+  background-color: white;
+  width: 200px;
+  height: 95%;
+
+  padding: 40px;
+  padding-top: 3%;
+  margin: 0;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+   -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+       -ms-user-select: none; /* Internet Explorer/Edge */
+           user-select: none; /* Non-prefixed version, currently
+                                 supported by Chrome, Opera and Firefox */
+
+}
+div.popup
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    overflow-y: scroll;
+    visibility: hidden;
+}
+div.popup div.content
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 60%;
+  padding: 10%;
+  padding-top: 5%;
+  margin: 10%;
+  margin-top: 5%;
+}
+i.closePopUp
+{
+  position: absolute;
+  z-index: 9999;
+  top: 7%;
+  right: 5%;
+}
+
+
+
+input.slider
+{
+  height: 5px;
+  width: 150px;
+  border-radius: 5px;
+  background: "rgb(83,83,83)";
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: background .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+input.slider:hover
+{
+  background: "rgb(255,255,255)";
+}
+input.slider::-webkit-slider-thumb
+{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #616161;
+  cursor: pointer;
+}
+input.slider::-moz-range-thumb
+{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #616161;
+  cursor: pointer;
+}
+
+
+
+i.fas:hover
+{
+  opacity: 0.5;
+}
+i.fa-bars
+{
+  position: fixed;
+  top: 10px;
+  right: 13px;
+
+}
+
+i.fas
+{
+  width: 15px;
+  height: 15px;
+  font-size: 12pt;
+}
+div.bottomButtons
+{
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  padding: 0;
+  margin: 0;
+  z-index: 99;
+  height: 30px;
+  width: 200px;
+}
+div.bottomButtons i
+{
+  padding-right: 15px;
+}
+
+ul.contextMenu
+{
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+}
+ul.contextMenu li
+{
+  height: 20px;
+  margin: 0;
+  padding: 5px;
+  padding-right: 10px;
+  border-bottom: 1px solid #dfdfdf;
+}
+ul.contextMenu li:hover
+{
+  background-color: #dddddd;
+}
+ul.contextMenu li:active
+{
+  background-color: #cccccc;
+}
+
+
+
+table.menu, table.options
+
+{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+table.menu tr
+{
+  padding: 0;
+  margin: 0;
+}
+table.menu td.button
+{
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+
+table.menu button.preset
+{
+  width: 95%;
+  padding: 5%;
+  margin: 0;
+  margin-bottom: 5px;
+}
+table.menu button.big
+{
+  width: 98%;
+  padding: 5%;
+  margin: 0;
+  margin-bottom: 5px;
+}
+table.menu td.doubleButton
+{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+input.checkBox
+{
+  padding: 10px;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: gray;
+}
+label
+{
+  position: relative;
+  top: -3px;
+}
