@@ -104,20 +104,20 @@ function createFieldLines()
   fieldLines = [];
   for (var i = 0; i < charges.length; i++)
   {
-      fieldLines[i] = [];
+    fieldLines[i] = [];
 
-      var radius = 15;
-      var times = Math.abs(charges[i].charge) * fieldLinesPerCoulomb;
-      var origin = charges[i].position;
+    var radius = 15;
+    var times = Math.abs(charges[i].charge) * fieldLinesPerCoulomb;
+    var origin = charges[i].position;
 
-      let point = createVector(radius,radius);
-      for (var a = 0; a < times; a++)
-      {
-        getFieldLinePoints(point.x + origin.x, point.y + origin.y, {charge: i, origin: a});
+    let point = createVector(radius,radius);
+    for (var a = 0; a < times; a++)
+    {
+      getFieldLinePoints(point.x + origin.x, point.y + origin.y, {charge: i, origin: a});
 
-        point = p5.Vector.add(point, createVector(0,0));
-        point.rotate(362/times);
-      }
+      point = p5.Vector.add(point, createVector(0,0));
+      point.rotate(362/times);
+    }
   }
 
   fieldLineArrows = [];
@@ -130,7 +130,7 @@ function createFieldLines()
         for (var s = 25; s < fieldLines[i][a].fieldLinePoints.length; s+=25)
         {
           var arrowPosition = fieldLines[i][a].fieldLinePoints[s];
-          var arrowAngle = netForceAtPoint(arrowPosition).heading();
+          var arrowAngle = netForceAtPoint(arrowPosition).mult(-1).heading();
           if (charges[i].charge != 0 && !noPositiveCharges)
           {
             fieldLineArrows.push(new FieldLineArrow(arrowPosition, arrowAngle + 180));
