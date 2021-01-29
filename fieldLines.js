@@ -130,7 +130,17 @@ function createFieldLines()
         for (var s = 25; s < fieldLines[i][a].fieldLinePoints.length; s+=25)
         {
           var arrowPosition = fieldLines[i][a].fieldLinePoints[s];
-          var arrowAngle = netForceAtPoint(arrowPosition).mult(-1).heading();
+          var arrowAngle;
+
+          if (charges[i].charge > 0) 
+          {
+            arrowAngle = netForceAtPoint(arrowPosition).mult(-1).heading();
+          }
+          else
+          {
+            arrowAngle = netForceAtPoint(arrowPosition).heading();
+          }
+          
           if (charges[i].charge != 0 && !noPositiveCharges)
           {
             fieldLineArrows.push(new FieldLineArrow(arrowPosition, arrowAngle + 180));
