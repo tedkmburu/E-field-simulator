@@ -13,7 +13,7 @@ function createFieldVectors()
       for (var charge of charges)
       {
         var distance = p5.Vector.dist(location, charge.position);
-        if (distance < chargeSize/3)
+        if (distance < chargeSize)
         {
           draw = false;
         }

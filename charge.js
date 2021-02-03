@@ -64,7 +64,7 @@ class Charge
     this.selected = false;
     this.dragging = false;
     this.force = null;
-    this.slider = createSlider(-10, 10, charge, 1);
+    this.slider = createSlider(-5, 5, charge, 1);
 
     this.slider.style("zIndex", "999");
     this.slider.style("visibility", "hidden");
